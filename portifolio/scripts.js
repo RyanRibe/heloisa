@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuLinks = document.querySelectorAll("#menu a")
   const content = document.getElementById("content")
   const sidebar = document.getElementById("sidebar")
-  const swipeMessage = document.getElementById("swipe-message")
 
   const techniques = {
     technique1: {
@@ -30,33 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (technique) {
         content.innerHTML = `
-                    <h2>${technique.title}</h2>
-                    <p>${technique.description}</p>
-                    <iframe width="100%" height="315" src="${technique.video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                `
-        if (window.innerWidth <= 768) {
-          sidebar.classList.remove("show")
-          swipeMessage.classList.add("show")
-        }
+          <h2>${technique.title}</h2>
+          <p>${technique.description}</p>
+          <iframe width="100%" height="315" src="${technique.video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        `
       }
     })
-  })
-
-  let startX = 0
-  let endX = 0
-
-  document.addEventListener("touchstart", function (e) {
-    startX = e.touches[0].clientX
-  })
-
-  document.addEventListener("touchmove", function (e) {
-    endX = e.touches[0].clientX
-  })
-
-  document.addEventListener("touchend", function () {
-    if (startX < endX && endX - startX > 50) {
-      sidebar.classList.add("show")
-      swipeMessage.classList.remove("show")
-    }
   })
 })
