@@ -20,11 +20,13 @@ body {
   --surface-color-hover: rgba(255, 255, 255, 0.5);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bgurl: url("./assets/assets/moon-stars.svg");
+  --bg-content-url: url("./assets/assets/bg-mobile-light.jpg");
 }
 
 @media (min-width: 700px) {
   :root {
     --bg-url: url("./assets/assets/bg-desktop.jpg");
+    --bg-content-url: url("./assets/assets/bg-desktop-light.jpg");
   }
 }
 
@@ -37,8 +39,9 @@ body {
 
 aside {
   width: 260px;
-  background-color: #333;
-  color: white;
+  /*background-color: #deb1fa;*/
+  /*background-image: url(./assets/assets/bg-mobile.jpg) no-repeat;*/
+  color: #deb5f7;
   padding: 20px;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -59,7 +62,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: #deb5f7;
   text-decoration: none;
   display: block;
   padding: 10px;
@@ -79,7 +82,8 @@ main {
 }
 
 #content {
-  background-color: white;
+  /*background-color: white;*/
+  background-image: var(--bg-content-url);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -87,6 +91,11 @@ main {
   flex: 1;
 }
 
+@media (min-width: 700px) {
+  #content {
+    --bg-content-url: url("./assets/assets/bg-desktop-light.jpg");
+  }
+}
 .swipe-message {
   display: none;
   position: absolute;
